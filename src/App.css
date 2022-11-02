@@ -89,6 +89,12 @@ div.story-body > p {
   margin-bottom: 20px;
 }
 
+.story-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 /* STORY ITEM */
 
 div.story-item {
@@ -112,9 +118,10 @@ div.story-content {
   color: var(--dark-gray);
 }
 
-.story-image {
-  width: 100%;
+.item-image {
+  width: 200px;
   height: auto;
+  object-fit: cover;
 }
 
 /* CATEGORY BADGE & PILL */
