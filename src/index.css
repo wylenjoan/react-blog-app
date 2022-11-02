@@ -1,13 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+:root {
+  --black: #292929;
+  --dark-gray: #757575;
+  --light-gray: #f2f2f2;
+}
+
+html {
+  color: var(--black);
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Merriweather Sans", sans-serif;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Merriweather", serif;
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+h1 {
+  font-size: xx-large;
+}
+
+h2 {
+  font-size: x-large;
+}
+
+h3 {
+  font-size: large;
+}
+
+p {
+  font-size: medium;
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+.caption {
+  font-size: small;
+  color: var(--dark-gray);
+}
+
+.overline {
+  font-size: small;
+  color: var(--black);
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  font-weight: bold;
+}
+
+a {
+  color: var(--black);
+  text-decoration: none;
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.truncate {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+div.flex {
+  display: flex;
+}
+
+div.column {
+  flex-direction: column;
+}
+
+div.align-center {
+  align-items: center;
+}
+
+div.gap-half {
+  gap: 0.5rem;
 }
