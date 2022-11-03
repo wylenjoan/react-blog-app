@@ -2,7 +2,9 @@ import { createBrowserRouter } from "react-router-dom";
 import App from './App';
 import routes from "./constants/routes";
 import Landing from "./pages/Landing";
-import Story from "./pages/Story";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Story from "./pages/StoryPage";
 
 const router = createBrowserRouter([
     {
@@ -14,7 +16,7 @@ const router = createBrowserRouter([
                 element: <Landing />,
             },
             {
-                path: routes.STORY,
+                path: `${routes.STORY}/:storySlug`,
                 element: <Story />,
             },
         ]

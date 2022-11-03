@@ -1,6 +1,7 @@
 enum routes {
     ROOT = "/",
-    STORY = "/story",
+    STORY = "stories",
+
 }
 
 export default routes;

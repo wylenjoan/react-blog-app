@@ -1,7 +1,5 @@
 type Story = {
     id: number,
-    user_id: number,
-    category_id: number,
     author: {
         id: number,
         name: string,
