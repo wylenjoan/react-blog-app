@@ -32,12 +32,25 @@ div.page {
   padding-bottom: 56px;
 }
 
-/* LANDING PAGE */
-
 div.landing-page {
   padding-left: 65px;
   padding-right: 65px;
 }
+
+div.story-page,
+div.category-page {
+  padding-left: 240px;
+  padding-right: 240px;
+}
+
+.empty-state {
+  font-weight: 300;
+  font-style: italic;
+  text-align: center;
+  margin-top: 48px;
+}
+
+/* LANDING PAGE */
 
 div.grid {
   display: grid;
@@ -67,11 +80,6 @@ div.categories {
 }
 
 /* STORY PAGE */
-
-div.story-page {
-  padding-left: 240px;
-  padding-right: 240px;
-}
 
 .story-title {
   margin: 24px 0 8px;

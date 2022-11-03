@@ -31,9 +31,16 @@ function CategoryPage() {
             });
     }, [categorySlug]);
 
-    const renderStories = category.stories.map((story) => (
-        <StoryItem key={story.id} story={story} />
-    ));
+    const renderStories = category.stories.length > 0 ? (
+        category.stories.map((story) => (
+            <StoryItem key={story.id} story={story} />
+        ))
+    ) : (
+        <EmptyState>
+            <p>There are no stories in this category yet.</p>
+            <p>You may be the first one to write! 🚀</p>
+        </EmptyState>
+    );
 
     return (
         <div className='page category-page'>
