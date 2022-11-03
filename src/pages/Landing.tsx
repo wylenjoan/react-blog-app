@@ -1,7 +1,9 @@
 import { useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { listCategory } from '../apiClient/services/category';
 import { listStory } from '../apiClient/services/story';
 import StoryItem from '../components/StoryItem';
+import routes from '../constants/routes';
 import Category from '../types/Category';
 import Story from '../types/Story';
 
@@ -27,8 +29,10 @@ function Landing() {
             });
     }, []);
 
-    const renderCategories = categories.map(({ id, name }) => (
-        <span key={id} className="category-badge">{name}</span>
+    const renderCategories = categories.map(({ id, slug, name }) => (
+        <Link to={`${routes.CATEGORY}/${slug}`} key={id}>
+            <span className="category-badge">{name}</span>
+        </Link>
     ));
 
     const renderStories = stories.map((story) => (
