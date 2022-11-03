@@ -21,6 +21,10 @@ div.nav-links {
   gap: 3rem;
 }
 
+.nav-link:hover {
+  text-decoration: underline;
+}
+
 /* PAGE */
 
 div.page {
@@ -100,7 +104,14 @@ div.story-body > p {
 div.story-item {
   display: flex;
   gap: 1rem;
-  margin-bottom: 48px;
+  margin-bottom: 24px;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+div.story-item:hover {
+  background-color: var(--light-gray);
+  cursor: pointer;
 }
 
 div.story-content {
