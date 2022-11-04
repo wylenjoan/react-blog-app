@@ -10,6 +10,13 @@ export type User = {
     updated_at: string,
 };
 
+export type UserCreation = {
+    name: string,
+    username: string,
+    email: string,
+    password: string,
+};
+
 export type UserWithStories = {
     id: number,
     name: string,
