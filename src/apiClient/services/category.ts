@@ -6,7 +6,7 @@ function listCategory() {
 }
 
 function getCategoryWithStories(slug?: string) {
-    return axiosClient.get(`/categories/${slug}/stories`);
+    return axiosClient.get(`/categories/slug/${slug}/stories`);
 }
 
 export {
