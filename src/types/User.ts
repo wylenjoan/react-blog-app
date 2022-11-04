@@ -28,4 +28,9 @@ export type UserWithStories = {
     stories: Story[],
 };
 
+export type Credentials = {
+    email: string,
+    password: string,
+};
+
 export default User;

@@ -157,3 +157,9 @@ button:hover {
   color: #dc2626;
   margin-top: 4px;
 }
+
+.error-alert {
+  padding: 16px;
+  background-color: #fee2e2;
+  color: #991b1b;
+}
