@@ -20,30 +20,34 @@ function CategoryPage() {
         stories: [],
     });
 
+    const [message, setMessage] = useState<string>('');
+
+
     useMemo(() => {
         getCategoryWithStories(categorySlug)
             .then(function (response) {
                 setCategory(response.data);
-
+                if (response.data.stories.length === 0) {
+                    setMessage('There are no stories in this category yet. You may be the first one to write! 🚀');
+                }
             })
             .catch(function (error) {
-                console.log(error);
+                setMessage('We didn\'t find the category you\'re looking for.');
             });
     }, [categorySlug]);
 
-    const renderStories = category.stories.length > 0 ? (
+    const renderStories = category.stories.length ? (
         category.stories.map((story) => (
             <StoryItem key={story.id} story={story} />
         ))
     ) : (
         <EmptyState>
-            <p>There are no stories in this category yet.</p>
-            <p>You may be the first one to write! 🚀</p>
+            <p>{message}</p>
         </EmptyState>
     );
 
-    return (
-        <div className='page category-page'>
+    const renderCategory = category.id ? (
+        <div>
             <div className='flex align-center gap-1 mb-1'>
                 <Icon
                     path={mdiShape}
@@ -56,6 +60,24 @@ function CategoryPage() {
             <div className='mt-1'>
                 {renderStories}
             </div>
+
+        </div>
+    ) : (
+        <EmptyState>
+            <div className='flex align-center justify-center gap-half'>
+                <Icon
+                    path={mdiShape}
+                    size='2rem'
+                    horizontal
+                />
+                <p>{message}</p>
+            </div>
+        </EmptyState>
+    );
+
+    return (
+        <div className='page category-page'>
+            {renderCategory}
         </div>
     );
 }

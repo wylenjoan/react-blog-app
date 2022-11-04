@@ -72,6 +72,10 @@ code {
     monospace;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .truncate {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -92,6 +96,10 @@ div.column {
 
 div.align-center {
   align-items: center;
+}
+
+div.justify-center {
+  justify-content: center;
 }
 
 div.gap-half {

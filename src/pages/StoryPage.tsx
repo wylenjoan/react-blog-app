@@ -5,6 +5,7 @@ import { useMemo, useState } from 'react';
 import { getStoryBySlug } from '../apiClient/services/story';
 import Story from '../types/Story';
 import formatReadableDate from '../utils/formatReadableDate';
+import EmptyState from '../components/EmptyState';
 
 
 function StoryPage() {
@@ -27,18 +28,20 @@ function StoryPage() {
         updated_at: '',
     });
 
+    const [message, setMessage] = useState<string>('');
+
     useMemo(() => {
         getStoryBySlug(storySlug)
             .then(function (response) {
                 setStory(response.data);
             })
             .catch(function (error) {
-                console.log(error);
+                setMessage('The story you\'re looking hasn\'t been written yet. Maybe you\'re the one who\'s gonna write it? 🤔');
             });
     }, [storySlug]);
 
-    return (
-        <div className='page story-page'>
+    const renderStory = story.id ? (
+        <div>
             <div className='flex align-center gap-half'>
                 <Icon
                     path={mdiSpaceInvaders}
@@ -60,6 +63,16 @@ function StoryPage() {
             <div className='story-body'>
                 {story.body}
             </div>
+        </div>
+    ) : (
+        <EmptyState>
+            <p>{message}</p>
+        </EmptyState>
+    );
+
+    return (
+        <div className='page story-page'>
+            {renderStory}
         </div>
     );
 }
