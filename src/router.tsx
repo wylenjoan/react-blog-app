@@ -6,6 +6,7 @@ import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Story from "./pages/StoryPage";
+import User from "./pages/UserPage";
 
 const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
             {
                 path: `${routes.CATEGORY}/:categorySlug`,
                 element: <Category />,
+            },
+            {
+                path: `${routes.USER}/:username`,
+                element: <User />,
             },
         ]
     },

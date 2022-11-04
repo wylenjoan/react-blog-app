@@ -4,6 +4,7 @@ enum routes {
     REGISTER = "/register",
     STORY = "/stories",
     CATEGORY = "/categories",
+    USER = "/users"
 }
 
 export default routes;
