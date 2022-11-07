@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { registerUser } from '../apiClient/services/auth';
-import InputTextGroup from '../components/InputTextGroup';
+import InputGroup from '../components/InputGroup';
 import LogoNav from '../components/LogoNav';
 import routes from '../constants/routes';
 import { UserCreation } from '../types/User';
@@ -53,21 +53,21 @@ function Register() {
             <div className='page form-page'>
                 <h1 className='text-center mb-1'>Create an account</h1>
                 <form method="post" onSubmit={handleSubmit}>
-                    <InputTextGroup
+                    <InputGroup
                         name='name'
                         value={user.name}
                         error={error.name}
                         onChange={handleInputChange}
                         required
                     />
-                    <InputTextGroup
+                    <InputGroup
                         name='username'
                         value={user.username}
                         error={error.username}
                         onChange={handleInputChange}
                         required
                     />
-                    <InputTextGroup
+                    <InputGroup
                         name='email'
                         type='email'
                         value={user.email}
@@ -75,7 +75,7 @@ function Register() {
                         onChange={handleInputChange}
                         required
                     />
-                    <InputTextGroup
+                    <InputGroup
                         name='password'
                         type='password'
                         value={user.password}

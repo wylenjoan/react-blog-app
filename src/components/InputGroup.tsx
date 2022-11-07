@@ -1,4 +1,5 @@
 import React, { ChangeEvent } from 'react';
+import Label from './Label';
 
 interface Props {
     type?: string,
@@ -6,20 +7,24 @@ interface Props {
     value: string,
     error?: string,
     required?: boolean;
+    disabled?: boolean;
     onChange: (event: ChangeEvent<HTMLInputElement>) => void,
 }
 
-function InputTextGroup(props: Props) {
-    const { type, name, value, error, required, onChange } = props;
+function InputGroup(props: Props) {
+    const {
+        type,
+        name,
+        value,
+        error,
+        required,
+        disabled,
+        onChange
+    } = props;
 
     return (
         <div className='flex column mb-2'>
-            <label
-                className='caption capitalize'
-                htmlFor={name}
-            >
-                {name}
-            </label>
+            <Label name={name} />
 
             <input
                 type={type ?? "text"}
@@ -27,6 +32,7 @@ function InputTextGroup(props: Props) {
                 value={value}
                 onChange={onChange}
                 required={required}
+                disabled={disabled}
             />
 
             <span className='error caption'>
@@ -36,4 +42,4 @@ function InputTextGroup(props: Props) {
     );
 }
 
-export default InputTextGroup;
+export default InputGroup;

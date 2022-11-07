@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../apiClient/services/auth';
-import InputTextGroup from '../components/InputTextGroup';
+import InputGroup from '../components/InputGroup';
 import LogoNav from '../components/LogoNav';
 import routes from '../constants/routes';
 import { Credentials } from '../types/User';
@@ -56,14 +56,14 @@ function Login() {
             <div className='page form-page'>
                 <h1 className='text-center mb-1'>Log in</h1>
                 <form method="post" onSubmit={handleSubmit}>
-                    <InputTextGroup
+                    <InputGroup
                         name='email'
                         type='email'
                         value={credentials.email}
                         onChange={handleInputChange}
                         required
                     />
-                    <InputTextGroup
+                    <InputGroup
                         name='password'
                         type='password'
                         value={credentials.password}
