@@ -132,7 +132,8 @@ label {
 
 input[type="text"],
 input[type="password"],
-input[type="email"] {
+input[type="email"],
+textarea {
   padding: 6px;
   font-family: inherit;
   font-size: inherit;
