@@ -10,23 +10,7 @@ import EmptyState from '../components/EmptyState';
 
 function StoryPage() {
     let { storySlug } = useParams();
-    const [story, setStory] = useState<Story>({
-        id: 0,
-        author: {
-            id: 0,
-            name: '',
-        },
-        category: {
-            id: 0,
-            name: '',
-        },
-        title: '',
-        slug: '',
-        excerpt: '',
-        body: '',
-        created_at: '',
-        updated_at: '',
-    });
+    const [story, setStory] = useState<Story>();
 
     const [message, setMessage] = useState<string>('');
 
@@ -40,7 +24,7 @@ function StoryPage() {
             });
     }, [storySlug]);
 
-    const renderStory = story.id ? (
+    const renderStory = story ? (
         <div>
             <div className='flex align-center gap-half'>
                 <Icon

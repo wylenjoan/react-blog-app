@@ -11,14 +11,7 @@ import EmptyState from '../components/EmptyState';
 
 function CategoryPage() {
     let { categorySlug } = useParams();
-    const [category, setCategory] = useState<CategoryWithStories>({
-        id: 0,
-        name: '',
-        slug: '',
-        created_at: '',
-        updated_at: '',
-        stories: [],
-    });
+    const [category, setCategory] = useState<CategoryWithStories>();
 
     const [message, setMessage] = useState<string>('');
 
@@ -36,7 +29,7 @@ function CategoryPage() {
             });
     }, [categorySlug]);
 
-    const renderStories = category.stories.length ? (
+    const renderStories = category?.stories.length ? (
         category.stories.map((story) => (
             <StoryItem key={story.id} story={story} />
         ))
@@ -46,7 +39,7 @@ function CategoryPage() {
         </EmptyState>
     );
 
-    const renderCategory = category.id ? (
+    const renderCategory = category ? (
         <div>
             <div className='flex align-center gap-1 mb-1'>
                 <Icon
