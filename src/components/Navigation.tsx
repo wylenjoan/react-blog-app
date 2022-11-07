@@ -2,26 +2,16 @@ import Icon from '@mdi/react';
 import { mdiMeteor } from '@mdi/js';
 import { Link } from 'react-router-dom';
 import routes from '../constants/routes';
-import { useEffect, useState } from 'react';
+import useLoggedInUser from '../hooks/useLoggedInUser';
 
 
 function Navigation() {
     const token = localStorage.getItem('usertoken');
-    const loggedInUser = localStorage.getItem('user');
-    const [user, setUser] = useState({
-        name: '',
-        username: ''
-    });
-
-    useEffect(() => {
-        if (loggedInUser) {
-            setUser(JSON.parse(loggedInUser));
-        }
-    }, [loggedInUser]);
+    const user = useLoggedInUser();
 
     const renderNavLinks = token ? (
         <div className='nav-links'>
-            <p>Hello, {user.name}!</p>
+            <p>Hello, {user?.name}!</p>
         </div>
     ) : (
         <div className='nav-links'>
