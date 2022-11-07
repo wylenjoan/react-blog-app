@@ -11,7 +11,7 @@ function Navigation() {
 
     const renderNavLinks = token ? (
         <div className='nav-links'>
-            <p>Hello, {user?.name}!</p>
+            <span className='nav-greeting'>Hello, {user?.name}!</span>
         </div>
     ) : (
         <div className='nav-links'>
