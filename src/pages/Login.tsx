@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../apiClient/services/auth';
 import InputGroup from '../components/InputGroup';
 import LogoNav from '../components/LogoNav';
+import SubmitButton from '../components/SubmitButton';
 import routes from '../constants/routes';
 import { Credentials } from '../types/User';
 
@@ -73,9 +74,7 @@ function Login() {
 
                     {renderErrorMessage}
 
-                    <button type='submit' className='float-right'>
-                        Submit
-                    </button>
+                    <SubmitButton />
                 </form>
             </div>
         </div>
