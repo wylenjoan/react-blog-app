@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { registerUser } from '../apiClient/services/auth';
 import InputTextGroup from '../components/InputTextGroup';
 import LogoNav from '../components/LogoNav';
+import routes from '../constants/routes';
 import { UserCreation } from '../types/User';
 
 function Register() {
+    const navigate = useNavigate();
+
     const [user, setUser] = useState<UserCreation>({
         name: '',
         username: '',
@@ -34,7 +38,9 @@ function Register() {
         event.preventDefault();
         registerUser(user)
             .then(function (response) {
-                localStorage.setItem('usertoken', response.data.token);
+                localStorage.setItem('usertoken', response.data.token); localStorage.setItem('user', JSON.stringify(response.data.user));
+                localStorage.setItem('user', JSON.stringify(response.data.user));
+                navigate(routes.ROOT);
             })
             .catch(function (error) {
                 setError(error.response?.data.errors);

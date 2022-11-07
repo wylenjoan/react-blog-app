@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../apiClient/services/auth';
 import InputTextGroup from '../components/InputTextGroup';
 import LogoNav from '../components/LogoNav';
+import routes from '../constants/routes';
 import { Credentials } from '../types/User';
 
 function Login() {
+    const navigate = useNavigate();
 
     const [credentials, setCredentials] = useState<Credentials>({
         email: '',
@@ -29,6 +32,8 @@ function Login() {
         loginUser(credentials)
             .then(function (response) {
                 localStorage.setItem('usertoken', response.data.token);
+                localStorage.setItem('user', JSON.stringify(response.data.user));
+                navigate(routes.ROOT);
             })
             .catch(function (error) {
                 if (error.response.status === 422) {
