@@ -8,7 +8,6 @@ interface Props {
     required?: boolean;
     disabled?: boolean;
     onChange: (event: ChangeEvent<HTMLSelectElement>) => void,
-
 }
 
 function SelectGroup(props: Props) {

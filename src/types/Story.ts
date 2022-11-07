@@ -1,4 +1,4 @@
-type Story = {
+export type Story = {
     id: number,
     author: {
         id: number,
@@ -14,6 +14,14 @@ type Story = {
     body: string,
     created_at: string,
     updated_at: string,
+};
+
+export type StoryCreation = {
+    category_id: number,
+    slug: string,
+    title: string,
+    excerpt: string,
+    body: string,
 };
 
 export default Story;

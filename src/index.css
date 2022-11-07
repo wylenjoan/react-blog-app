@@ -133,7 +133,8 @@ label {
 input[type="text"],
 input[type="password"],
 input[type="email"],
-textarea {
+textarea,
+select {
   padding: 6px;
   font-family: inherit;
   font-size: inherit;
@@ -163,4 +164,10 @@ button:hover {
   padding: 16px;
   background-color: #fee2e2;
   color: #991b1b;
+}
+
+.success-alert {
+  padding: 16px;
+  background-color: #dcfce7;
+  color: #166534;
 }

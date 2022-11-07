@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from './App';
 import routes from "./constants/routes";
+import CreateStory from "./pages/Authenticated/CreateStory";
 import Category from "./pages/CategoryPage";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
             {
                 path: `${routes.USER}/:username`,
                 element: <User />,
+            },
+            {
+                path: routes.CREATE_STORY,
+                element: <CreateStory />,
             },
         ]
     },

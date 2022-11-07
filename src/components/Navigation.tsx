@@ -3,15 +3,21 @@ import { mdiMeteor } from '@mdi/js';
 import { Link } from 'react-router-dom';
 import routes from '../constants/routes';
 import useLoggedInUser from '../hooks/useLoggedInUser';
+import useToken from '../hooks/useToken';
 
 
 function Navigation() {
-    const token = localStorage.getItem('usertoken');
+    const token = useToken();
     const user = useLoggedInUser();
 
     const renderNavLinks = token ? (
         <div className='nav-links'>
-            <span className='nav-greeting'>Hello, {user?.name}!</span>
+            <Link to={routes.CREATE_STORY}>
+                <span className='nav-link'>
+                    Create story
+                </span>
+            </Link >
+            <span className='nav-greeting'>{`Hello, ${user?.name}!`}</span>
         </div>
     ) : (
         <div className='nav-links'>
