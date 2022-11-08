@@ -2,13 +2,13 @@ import React, { ChangeEvent } from 'react';
 import Label from './Label';
 
 interface Props {
-    name: string,
-    value: string,
-    error?: string,
-    rows?: number,
+    name: string;
+    value: string;
+    error?: string;
+    rows?: number;
     required?: boolean;
     disabled?: boolean;
-    onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void,
+    onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
 function TextareaGroup(props: Props) {

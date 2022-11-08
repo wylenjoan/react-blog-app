@@ -2,12 +2,13 @@ import React, { ChangeEvent } from 'react';
 import Label from './Label';
 
 interface Props {
-    name: string,
-    values: any[],
-    error?: string,
+    name: string;
+    values: any[];
+    error?: string;
+    selected_id?: number;
     required?: boolean;
     disabled?: boolean;
-    onChange: (event: ChangeEvent<HTMLSelectElement>) => void,
+    onChange: (event: ChangeEvent<HTMLSelectElement>) => void;
 }
 
 function SelectGroup(props: Props) {
@@ -15,6 +16,7 @@ function SelectGroup(props: Props) {
         name,
         values,
         error,
+        selected_id,
         required,
         disabled,
         onChange
@@ -30,7 +32,7 @@ function SelectGroup(props: Props) {
                 onChange={onChange}
             >
                 {values.map(({ id, name }) => (
-                    <option key={id} value={id}>{name}</option>
+                    <option key={id} value={id} selected={selected_id === id}>{name}</option>
                 ))}
             </select>
             <span className='error caption'>

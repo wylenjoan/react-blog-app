@@ -2,13 +2,13 @@ import React, { ChangeEvent } from 'react';
 import Label from './Label';
 
 interface Props {
-    type?: string,
-    name: string,
-    value: string,
-    error?: string,
+    type?: string;
+    name: string;
+    value: string;
+    error?: string;
     required?: boolean;
     disabled?: boolean;
-    onChange: (event: ChangeEvent<HTMLInputElement>) => void,
+    onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 function InputGroup(props: Props) {
