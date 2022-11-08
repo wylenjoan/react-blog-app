@@ -17,8 +17,26 @@ function getStoryBySlug(slug?: string) {
     return axiosClient.get(`/stories/slug/${slug}`);
 }
 
+function updateStory(storyId: number, story: StoryCreation, token: string) {
+    return axiosClient.patch(`/stories/${storyId}`, story, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    });
+}
+
+function deleteStory(storyId: number, token: string) {
+    return axiosClient.delete(`/stories/${storyId}`, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    });
+}
+
 export {
     listStory,
     createStory,
     getStoryBySlug,
+    updateStory,
+    deleteStory,
 };

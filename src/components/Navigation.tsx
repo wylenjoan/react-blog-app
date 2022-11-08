@@ -12,6 +12,11 @@ function Navigation() {
 
     const renderNavLinks = token ? (
         <div className='nav-links'>
+            <Link to={routes.MY_STORIES}>
+                <span className='nav-link'>
+                    My Stories
+                </span>
+            </Link >
             <Link to={routes.CREATE_STORY}>
                 <span className='nav-link'>
                     Create story
