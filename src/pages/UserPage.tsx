@@ -30,7 +30,6 @@ function UserPage() {
                 if (response.data.stories.length < 2) {
                     setMessage('This space traveller hasn\'t written a story yet. 🌌');
                 }
-                console.log(response.data.stories.length);
             })
             .catch(function (error) {
                 setMessage('We didn\'t find a space traveller with that username');
