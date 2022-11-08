@@ -9,7 +9,16 @@ function loginUser(credentials: Credentials) {
     return axiosClient.post('/login', credentials);
 }
 
+function logoutUser(token: string) {
+    return axiosClient.post('/logout', {}, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    });
+}
+
 export {
     registerUser,
-    loginUser
+    loginUser,
+    logoutUser,
 };
