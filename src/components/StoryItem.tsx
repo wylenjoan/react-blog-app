@@ -17,7 +17,7 @@ function StoryItem({ story }: Props) {
         <Link to={`${routes.STORY}/${slug}`}>
             <div className='story-item'>
                 <div className='story-content'>
-                    <div className='flex align-center gap-half'>
+                    <div className='flex items-center gap-2'>
                         <Icon
                             path={mdiSpaceInvaders}
                             size={1}
@@ -26,19 +26,19 @@ function StoryItem({ story }: Props) {
                     </div>
 
                     <div>
-                        <h2 className='truncate item-title'>{title}</h2>
-                        <p className='truncate item-excerpt'>
+                        <h2 className='item-title'>{title}</h2>
+                        <p className='item-excerpt'>
                             {excerpt}
                         </p>
                     </div>
 
-                    <div className='flex align-center gap-half'>
+                    <div className='flex items-center gap-2'>
                         <span className='caption'>{formatReadableDate(created_at)}</span>
                         <span className='caption'>&#8226;</span>
                         <span className='category-pill'>{category.name}</span>
                     </div>
                 </div>
-                <img src='https://spaceholder.cc/200x134' alt='spaceholder' className='item-image' />
+                <img src='https://spaceholder.cc/i/200/134' alt='spaceholder' className='item-image' />
             </div>
         </Link>
     );

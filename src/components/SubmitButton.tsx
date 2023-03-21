@@ -1,9 +1,14 @@
 import React from 'react';
 
-function SubmitButton() {
+interface Props {
+    text?: string;
+}
+
+function SubmitButton(props: Props) {
+    const { text } = props;
     return (
         <button type='submit' className='float-right'>
-            Submit
+            {text ?? 'Submit'}
         </button>
     );
 }

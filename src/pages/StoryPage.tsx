@@ -26,7 +26,7 @@ function StoryPage() {
 
     const renderStory = story ? (
         <div>
-            <div className='flex align-center gap-half'>
+            <div className='flex items-center gap-2'>
                 <Icon
                     path={mdiSpaceInvaders}
                     size={1}
@@ -43,7 +43,7 @@ function StoryPage() {
             <p className='story-excerpt'>
                 {story.excerpt}
             </p>
-            <img src='https://spaceholder.cc/800x500' alt='spaceholder' className='story-image' />
+            <img src='https://spaceholder.cc/i/800/500' alt='spaceholder' className='story-image' />
             <div className='story-body'>
                 {story.body}
             </div>

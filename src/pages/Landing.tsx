@@ -41,13 +41,13 @@ function Landing() {
 
     return (
         <div className='page landing-page'>
-            <div className='grid'>
+            <div className='landing-grid'>
                 <section className='story-feed'>
-                    <p className='overline'>Stories</p>
+                    <p className='small-caps'>Stories</p>
                     {renderStories}
                 </section>
                 <aside className='category-list'>
-                    <p className='overline'>
+                    <p className='small-caps'>
                         Discover more by category
                     </p>
                     <div className='categories'>

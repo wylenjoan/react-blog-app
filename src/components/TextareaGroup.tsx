@@ -23,7 +23,7 @@ function TextareaGroup(props: Props) {
     } = props;
 
     return (
-        <div className='flex column mb-2'>
+        <div className='flex flex-col mb-2'>
             <Label name={name} />
 
             <textarea

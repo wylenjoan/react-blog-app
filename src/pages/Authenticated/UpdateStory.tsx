@@ -112,7 +112,7 @@ function UpdateStory() {
 
     return (
         <div className='page story-page'>
-            <h1 className='text-center mb-1'> Create Story </h1>
+            <h1 className='text-center mb-1'> Update Story </h1>
             <form method="post" onSubmit={handleSubmit}>
                 <InputGroup
                     name='title'
