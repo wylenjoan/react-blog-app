@@ -5,7 +5,7 @@ import { getUserWithStories } from '../../apiClient/services/user';
 import formatReadableDate from '../../utils/formatReadableDate';
 import { deleteStory } from '../../apiClient/services/story';
 import useToken from '../../hooks/useToken';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import routes from '../../constants/routes';
 import EmptyState from '../../components/EmptyState';
 
@@ -68,20 +68,27 @@ function StoriesByUser() {
             <tbody>
                 {viewedUser.stories.map((story) => (
                     <tr className='data' key={story.id}>
-                        <td>{story.title}</td>
+                        <td>
+                            {story.title}
+                        </td>
                         <td>
                             <span className='category-pill'>{story.category.name}</span>
                         </td>
                         <td>{formatReadableDate(story.created_at)}</td>
                         <td>
+                            <Link to={`${routes.STORY}/${story.slug}`}>
+                                <button className='btn-small mr-1'>
+                                    View
+                                </button>
+                            </Link>
                             <button
-                                className='small blue mr-1'
+                                className='btn-small btn-blue mr-1'
                                 onClick={() => handleNavigateUpdatePage(story.slug)}
                             >
                                 Edit
                             </button>
                             <button
-                                className='small red'
+                                className='btn-small btn-red mr-1'
                                 onClick={() => handleDeleteStory(story.id)}
                             >
                                 Delete
