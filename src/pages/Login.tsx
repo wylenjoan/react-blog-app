@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../apiClient/services/auth';
 import InputGroup from '../components/InputGroup';
 import LogoNav from '../components/LogoNav';
@@ -55,7 +55,7 @@ function Login() {
         <div>
             <LogoNav />
             <div className='page form-page'>
-                <h1 className='text-center mb-1'>Log in</h1>
+                <h1 className='text-center mb-1'>Login</h1>
                 <form method="post" onSubmit={handleSubmit}>
                     <InputGroup
                         name='email'
@@ -74,7 +74,12 @@ function Login() {
 
                     {renderErrorMessage}
 
-                    <SubmitButton />
+                    <div className='w-full flex items-center justify-between'>
+                        <Link to={routes.REGISTER}>
+                            <span className='link'>Create account</span>
+                        </Link >
+                        <SubmitButton text='Log in' />
+                    </div>
                 </form>
             </div>
         </div>

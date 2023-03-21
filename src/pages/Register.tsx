@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { registerUser } from '../apiClient/services/auth';
 import InputGroup from '../components/InputGroup';
 import LogoNav from '../components/LogoNav';
@@ -85,7 +85,13 @@ function Register() {
                         required
                     />
 
-                    <SubmitButton />
+                    <div className='w-full flex items-center justify-between'>
+                        <Link to={routes.LOGIN}>
+                            <span className='link'>Log into account</span>
+                        </Link >
+                        <SubmitButton text='Register' />
+                    </div>
+
                 </form>
             </div>
         </div>
