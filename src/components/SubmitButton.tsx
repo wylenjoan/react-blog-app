@@ -7,7 +7,7 @@ interface Props {
 function SubmitButton(props: Props) {
     const { text } = props;
     return (
-        <button type='submit' className='float-right'>
+        <button type='submit' className='btn-gray float-right'>
             {text ?? 'Submit'}
         </button>
     );

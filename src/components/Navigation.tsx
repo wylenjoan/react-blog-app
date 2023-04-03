@@ -39,7 +39,7 @@ function Navigation() {
             </Link >
             <span className='nav-greeting'>{`Hello, ${user?.name}!`}</span>
             <button
-                className='small'
+                className='btn-gray small'
                 onClick={handleLogoutUser}
             >
                 Logout

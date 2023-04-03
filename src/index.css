@@ -55,8 +55,7 @@
   button[type='button'], 
   button[type='reset'], 
   button[type='submit'] {
-    @apply bg-dark-gray text-white px-4 py-2 font-sans border-none;
-    @apply hover:cursor-pointer hover:bg-black;
+    @apply px-4 py-2 font-sans border-none hover:cursor-pointer rounded-sm;
   }
   
   table {
@@ -90,12 +89,20 @@
     @apply text-sm py-[6px] px-3;
   }
 
+  button.btn-gray {
+    @apply bg-dark-gray hover:bg-black text-white;
+  }
+
   button.btn-red {
-    @apply bg-red-700 hover:bg-red-800;
+    @apply bg-red-600 hover:bg-red-800 text-white;
   }
 
   button.btn-blue {
-    @apply bg-blue-700 hover:bg-blue-800;
+    @apply bg-blue-600 hover:bg-blue-800 text-white;
+  }
+
+  button.btn-gray-ghost {
+    @apply text-dark-gray hover:text-black hover:bg-light-gray ;
   }
 
   .link {

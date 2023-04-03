@@ -8,6 +8,7 @@ import useToken from '../../hooks/useToken';
 import { Link, useNavigate } from 'react-router-dom';
 import routes from '../../constants/routes';
 import EmptyState from '../../components/EmptyState';
+import DeleteModal from '../../components/DeleteModal';
 
 
 function StoriesByUser() {
@@ -17,6 +18,8 @@ function StoriesByUser() {
     const navigate = useNavigate();
 
     const [message, setMessage] = useState<string>('');
+    const [isDeleteModalOpen, setDeleteModalOpen] = useState<boolean>(false);
+    const [selectedStoryId, setSelectedStoryId] = useState<number>(0);
     const [viewedUser, setViewedUser] = useState<UserWithStories>({
         id: 0,
         name: '',
@@ -48,12 +51,17 @@ function StoriesByUser() {
         deleteStory(storyId, token)
             .then(function (response) {
                 window.location.reload();
+                handleToggleModal(false);
 
             })
             .catch(function (error) {
                 console.log(error);
             });
     };
+
+    function handleToggleModal(modalState: boolean) {
+        setDeleteModalOpen(modalState);
+    }
 
     const renderStories = viewedUser.stories.length ? (
         <table>
@@ -77,7 +85,7 @@ function StoriesByUser() {
                         <td>{formatReadableDate(story.created_at)}</td>
                         <td>
                             <Link to={`${routes.STORY}/${story.slug}`}>
-                                <button className='btn-small mr-1'>
+                                <button className='btn-small btn-gray  mr-1'>
                                     View
                                 </button>
                             </Link>
@@ -88,16 +96,21 @@ function StoriesByUser() {
                                 Edit
                             </button>
                             <button
+                                type='button'
+                                onClick={() => {
+                                    handleToggleModal(true);
+                                    setSelectedStoryId(story.id);
+                                }}
                                 className='btn-small btn-red mr-1'
-                                onClick={() => handleDeleteStory(story.id)}
                             >
                                 Delete
                             </button>
                         </td>
                     </tr>
+
                 ))}
             </tbody>
-        </table>
+        </table >
 
     ) : (
         <EmptyState>
@@ -105,10 +118,17 @@ function StoriesByUser() {
         </EmptyState>
     );
 
+    const renderDeleteModal = isDeleteModalOpen && (
+        <DeleteModal showModal={handleToggleModal} handleDelete={() => handleDeleteStory(selectedStoryId)} />
+    );
+
     return (
         <div className='page story-page'>
             <h1 className='text-center mb-1'>My Stories </h1>
             {renderStories}
+
+            {renderDeleteModal}
+
         </div>
     );
 }
